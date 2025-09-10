@@ -8,25 +8,28 @@
 //  ClipboardApp
 //
 
-import HotKey
 import Cocoa
+import HotKey
 
 class GlobalHotkey {
     private var hotKey: HotKey?
 
     func start() {
-        // Atajo global ⌘+Shift+V
-        hotKey = HotKey(key: .v, modifiers: [.command, .shift])
+        hotKey = HotKey(key: .v, modifiers: [.option, .command]) // Option + Command + V
         hotKey?.keyDownHandler = { [weak self] in
-            // Abrir el popover en el hilo principal
             DispatchQueue.main.async {
-                ClipboardPopover.shared.toggle()
+                if let button = StatusBarController.shared.statusItem.button {
+                    ClipboardPopover.shared.toggle(
+                        relativeTo: button.bounds,
+                        of: button,
+                        preferredEdge: .minY
+                    )
+                }
             }
         }
     }
 
     func stop() {
-        // HotKey se elimina automáticamente al liberar hotKey
         hotKey = nil
     }
 }

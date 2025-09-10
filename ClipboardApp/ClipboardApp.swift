@@ -9,17 +9,14 @@ import SwiftUI
 
 @main
 struct ClipboardApp: App {
-    @StateObject private var monitor = ClipboardMonitor()
-    let hotkey = GlobalHotkey()
+    init() {
+        DispatchQueue.main.async {
+            _ = StatusBarController.shared
+        }
+    }
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environmentObject(monitor)
-                .onAppear {
-                    hotkey.start()
-                }
-        }
+        Settings { EmptyView() }
     }
 }
 

@@ -18,4 +18,3 @@ struct ClipboardItem: Identifiable, Codable, Equatable {
         self.pinned = pinned
     }
 }
-

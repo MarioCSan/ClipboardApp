@@ -8,5 +8,5 @@
 import Foundation
 
 struct AppGlobals {
-    static var clipboardMonitor: ClipboardMonitor?
+    static let clipboardMonitor = ClipboardMonitor()
 }
