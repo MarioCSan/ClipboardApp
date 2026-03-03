@@ -14,7 +14,7 @@ Animation when copying with the message ‘Text copied’.
 ## 📦 Installation
 At the moment, this app is only available to compile from Xcode:
 Clone the repository:
-git clone https://github.com/TU_USUARIO/ClipboardApp.git
+git clone https://github.com/mariocsan/ClipboardApp.git
 cd ClipboardApp
 Open ClipboardApp.xcodeproj in Xcode.
 Compile and run on macOS.
